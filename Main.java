@@ -10,9 +10,13 @@ public class Main {
         System.out.println(entry);
 
         EntryHistory history = new EntryHistory();
+        history.loadFromFile("history.txt");
+
         history.addEntry(LocalDate.now(), entry);
-        history.addEntry(LocalDate.of(2026, 10, 1), "If I fail this exam, my whole life is ruined.");
+
         history.printAll();
         System.out.println("Entries stored: " + history.size());
+
+        history.saveToFile("history.txt");
     }
 }
